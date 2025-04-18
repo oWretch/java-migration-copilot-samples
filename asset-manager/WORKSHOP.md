@@ -1,4 +1,4 @@
-# Use `GitHub Copilot app modernization for Java on Azure` to migrate this project
+# Workshop: migrate this project to Azure
 
 > [!IMPORTANT]
 > `GitHub Copilot app modernization for Java on Azure` is in preview and is subject to change before becoming generally available.
