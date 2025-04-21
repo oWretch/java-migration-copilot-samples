@@ -1,11 +1,11 @@
 # Workshop: migrate this project to Azure
 
 > [!IMPORTANT]
-> `GitHub Copilot app modernization for Java on Azure` is in preview and is subject to change before becoming generally available.
+> `GitHub Copilot App Modernization - Java on Azure` is in preview and is subject to change before becoming generally available.
 
-`GitHub Copilot app modernization for Java on Azure` (also referred to as App Modernization for Java on Azure) assists with app assessment, planning and code remediation. It automates repetitive tasks, boosting developer confidence and speeding up the Azure migration and ongoing optimization.
+`GitHub Copilot App Modernization - Java on Azure` (also referred to as App Modernization for Java on Azure) assists with app assessment, planning and code remediation. It automates repetitive tasks, boosting developer confidence and speeding up the Azure migration and ongoing optimization.
 
-In this workshop, you learn how to use `GitHub Copilot app modernization for Java on Azure` to assess and migrate a sample Java application `asset-manager` to Azure. For more information about the sample application, see [Asset Manager](README.md).
+In this workshop, you learn how to use `GitHub Copilot App Modernization - Java on Azure` to assess and migrate a sample Java application `asset-manager` to Azure. For more information about the sample application, see [Asset Manager](README.md).
 
 ## Prerequisites
 
@@ -21,14 +21,14 @@ To successfully complete this workshop, you need the following:
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli): Required if you deploy the migrated application to Azure locally. The latest version is recommended.
 - Fork the [GitHub repository](https://github.com/Azure-Samples/java-migration-copilot-samples) that contains the sample Java application. **MAKE SURE TO UNCHECK THE BOX "Copy the `main` branch only.** Clone it to your local machine. Open the `asset-manager` folder in VSCode and checkout the `workshop` branch.
 
-## Install GitHub Copilot app modernization for Java on Azure Tool
+## Install GitHub Copilot App Modernization - Java on Azure Tool
 
-In VSCode, open the Extensions view from Activity Bar, search `GitHub Copilot app modernization for Java on Azure` extension in marketplace. Select the Install button on the extension. After installation completes, you should see a notification in the bottom-right corner of VSCode confirming success.
+In VSCode, open the Extensions view from Activity Bar, search `GitHub Copilot App Modernization - Java on Azure` extension in marketplace. Select the Install button on the extension. After installation completes, you should see a notification in the bottom-right corner of VSCode confirming success.
 
 
 ## Migrate the Sample Java Application
 
-The following sections guide you through the process of migrating the sample Java application `asset-manager` to Azure using GitHub Copilot app modernization for Java on Azure.
+The following sections guide you through the process of migrating the sample Java application `asset-manager` to Azure using GitHub Copilot App Modernization - Java on Azure.
 
 ### Assess Your Java Application
 
@@ -50,7 +50,7 @@ The first step is to assess the sample Java application `asset-manager`. The ass
 
 1. After clicking the Migrate button in the Solution Report, Copilot chat window will be opened with Agent Mode.
 1. In Copilot chat window, click **Continue** repeatedly to confirm each tool action. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by clicking the `Continue` button.
-1. After each step, please manually input a response to confirm and proceed.
+1. After each step, please manually input "Continue" to confirm and proceed.
 1. Click **Continue** to confirm to run **Java Application Build-Fix** tool. This tool will attempt to resolve any build errors, in up to 10 iterations.
 1. After the Build-Fix tool begins, click **Continue** to proceed and show progress and migration summary.
 1. Review the proposed code changes and click **Keep** to apply them.
