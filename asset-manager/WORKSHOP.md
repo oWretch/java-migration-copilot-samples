@@ -71,11 +71,12 @@ Recall that the sample Java application `asset-manager` uses AWS S3 for image st
 
 Now, you migrate the **Worker Service** to use Azure Blob Storage and Azure Service Bus as well, by using custom formulas created from existing commits that migrated the **Web Application**.
 
-1. Open the sidebar of `GitHub Copilot App Modernization - Java on Azure`. Hover the mouse over the **Formulas** section.  Select **Create formula from source control**. This icon looks like two circles with arrows pointing to the other circle. Type **migrate web** to search for the commits that migrated the **Web Application**, and you should see two commits listed:
+1. Open the sidebar of `GitHub Copilot App Modernization - Java on Azure`. Hover the mouse over the **Formulas** section.  Select **Create formula from source control**. This icon looks like two circles with arrows pointing to the other circle. 
+![Create Formula From Source Control](doc-media/create-formula-from-source-control.png)
+1.Type **migrate web** to search for the commits that migrated the **Web Application**, and you should see two commits listed:
    * migrate web rabbitmq to azure service bus
    * migrate web s3 to azure blob storage
-   ![Create Formula From Source Control](doc-media/create-formula-from-source-control.png)
-   ![Migration Commits](doc-media/migration-commits.png)
+![Migration Commits](doc-media/migration-commits.png)
 1. You will create two custom formulas based on the two commits. First, create the formula for migrating rabbitmq. Select the commit of **migrate web rabbitmq to azure service bus**, click OK.
 1. Click **Create New** to create a new custom formula.
 1. Default formula name will be generated. Give it a new name: "custom formula migrate rabbitmq". Press `Enter` to confirm. Then, formula description, and search patterns will be generated in order. Press `Enter` repeatedly to confirm.
