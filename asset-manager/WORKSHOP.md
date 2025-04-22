@@ -92,7 +92,66 @@ Now, you migrate the **Worker Service** to use Azure Blob Storage and Azure Serv
 
 ## Deploy to Azure
 
-At this point, you have successfully migrated the sample Java application `asset-manager` to use Azure Database for PostgreSQL, Azure Blob Storage, and Azure Service Bus. 
+At this point, you have successfully migrated the sample Java application `asset-manager` to use Azure Database for PostgreSQL, Azure Blob Storage, and Azure Service Bus. Now, you can deploy the migrated application to Azure using the Azure CLI after you identify a working location for your Azure resources.
 
-To deploy your app to Azure, you can use the Azure GitHub Copilot to automatically generate IOC files for quick deployment. 
-See https://learn.microsoft.com/en-us/azure/developer/github-copilot-azure/quickstart-deploy-existing-app for more details.
+For example, an Azure Database for PostgreSQL Flexible Server requires a location that supports the service. Follow the instructions below to find a suitable location.
+
+1. Run the following command to list all available locations for your account:
+
+   ```bash
+   az account list-locations -o table
+   ```
+
+1. Try a location from column **Name** in the output. For example, `eastus2` stands for **East US 2**.
+
+1. Run the following command to list all available SKUs in the selected location for Azure Database for PostgreSQL Flexible Server:
+
+   ```bash
+   az postgres flexible-server list-skus --location <your location> -o table
+   ```
+
+1. If you see the output contains the SKU `Standard_B1ms` and the **Tier** is `Burstable`, you can use the location for the deployment. Otherwise, try another location.
+
+   ```text
+   SKU                Tier             VCore    Memory    Max Disk IOPS
+   -----------------  ---------------  -------  --------  ---------------
+   Standard_B1ms      Burstable        1        2 GiB     640e
+   ```
+
+You can either run the deployment script locally or use the GitHub Codespaces. The recommended approach is to run the deployment script in the GitHub Codespaces, as it provides a ready-to-use environment with all the necessary dependencies.
+
+Deploy using GitHub Codespaces:
+1. Commit and push the changes to your forked repository.
+1. Follow instructions in [Use GitHub Codespaces for Deployment](README.md#use-github-codespaces-for-deployment) to deploy the app to Azure.
+
+Deploy using local environment by running the deployment script in the terminal:
+1. Run `az login` to sign in to Azure.
+1. Run the following commands to deploy the app to Azure:
+
+   Winndows:
+   ```batch
+   scripts\deploy-to-azure.cmd -ResourceGroupName <your resource group name> -Location <your resource group location, e.g., eastus2> -Prefix <your unique resource prefix>
+   ```
+
+   Linux:
+   ```bash
+   scripts/deploy-to-azure.sh -ResourceGroupName <your resource group name> -Location <your resource group location, e.g., eastus2> -Prefix <your unique resource prefix>
+   ```
+
+Once the deployment script completes successfully, it outputs the URL of the Web application. Open the URL in a browser to verify if the application is running as expected.
+
+## Clean up
+
+When you are done with the workshop, clean up the Azure resources to avoid incurring costs.
+
+Winndows:
+```batch
+scripts\cleanup-azure-resources.cmd -ResourceGroupName <your resource group name>
+```
+
+Linux:
+```bash
+scripts/cleanup-azure-resources.sh -ResourceGroupName <your resource group name>
+```
+
+If you deploy the app using GitHub Codespaces, delete the Codespaces environment by navigating to your forked repository in GitHub and selecting **Code** > **Codespaces** > **Delete**.
