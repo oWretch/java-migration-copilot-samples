@@ -86,9 +86,7 @@ Now, you migrate the **Worker Service** to use Azure Blob Storage and Azure Serv
 1. Now, the two custom formulas are ready.
 ![Custom Formulas](doc-media/custom-formulas.png)
 1. Select and run the two custom formulas one by one you created in the formulas section of `GitHub Copilot App Modernization - Java on Azure`, one at a time.
-
 ![Run Formula](doc-media/run-formula.png)
-
 1. Follow the same steps as the predefined formula to review and apply the changes, and run the Java Application Build-Fix tool to apply build fixes.
 1. Review the proposed code changes and click **Keep** to apply them.
 
