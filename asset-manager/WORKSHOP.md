@@ -73,7 +73,7 @@ Now, you migrate the **Worker Service** to use Azure Blob Storage and Azure Serv
 
 1. Open the sidebar of `GitHub Copilot App Modernization - Java on Azure`. Hover the mouse over the **Formulas** section.  Select **Create formula from source control**. This icon looks like two circles with arrows pointing to the other circle. 
 ![Create Formula From Source Control](doc-media/create-formula-from-source-control.png)
-1.Type **migrate web** to search for the commits that migrated the **Web Application**, and you should see two commits listed:
+1. Type **migrate web** to search for the commits that migrated the **Web Application**, and you should see two commits listed:
    * migrate web rabbitmq to azure service bus
    * migrate web s3 to azure blob storage
 ![Migration Commits](doc-media/migration-commits.png)
