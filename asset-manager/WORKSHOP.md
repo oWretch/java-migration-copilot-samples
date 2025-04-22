@@ -45,16 +45,14 @@ The first step is to assess the sample Java application `asset-manager`. The ass
 1. Open the VS code with all the prerequisites installed on the asset manager by changing the directory to the `asset manager` directory and running `code .` in that directory.
 1. Open the extension `GitHub Copilot App Modernization - Java on Azure`.
 1. The **Assess** button looks a triangle pointing right. Select **Assess**, the Github Copilot chat window will be opened and propose to run Modernization Assessor. Please confirm the tool usage by clicking **Continue**. 
+![Trigger Assessment](doc-media/trigger-assessment.png)
 
    > **NOTE**: If you are asked to allow the tool access the language models provided by GitHub Copilot Chat, select **Allow** to proceed.
-
-![Trigger Assessment](doc-media/trigger-assessment.png)
 
 1. After each step, please manually input "continue" to confirm and proceed.
 1. Wait for the assessment to be completed and the report to be generated.
 1. Review the **Summary** report. Select **Propose Solution** to view the proposed solutions for the issues identified in the summary report.
 1. For this workshop, deselect all solutions and select **Use Azure Database for PostgreSQL** in the Solution report, then select **Confirm Solution**.
-
 ![Confirm Solution](doc-media/confirm-postgresql-solution.png)
 
 1. In the Migrate report, click **Migrate**.
@@ -79,16 +77,20 @@ Now, you migrate the **Worker Service** to use Azure Blob Storage and Azure Serv
    * migrate web s3 to azure blob storage
    ![Create Formula From Source Control](doc-media/create-formula-from-source-control.png)
    ![Migration Commits](doc-media/migration-commits.png)
+
 1. You will create two custom formulas based on the two commits. First, create the formula for migrating rabbitmq. Select the commit of **migrate web rabbitmq to azure service bus**, click OK.
 1. Click **Create New** to create a new custom formula.
 1. Default formula name will be generated. Give it a new name: "custom formula migrate rabbitmq". Press `Enter` to confirm. Then, formula description, and search patterns will be generated in order. Press `Enter` repeatedly to confirm.
 1. Now, the custom formula for migrating rabbitmq is generated and shows in the section of formulas in of `GitHub Copilot App Modernization - Java on Azure` blade.
 ![Custom Formula of Migrating Rabbitmq](doc-media/custom-formula-rabbitmq.png)
+
 1. Create another custom formula for migrating S3. Follow the same steps you just did, select the commit **migrate web s3 to azure blob storage** to create a new custom formula with name: "custom formula migrate s3".
 1. Now, the two custom formulas are ready.
 ![Custom Formulas](doc-media/custom-formulas.png)
+
 1. Select and run the two custom formulas one by one you created in the formulas section of `GitHub Copilot App Modernization - Java on Azure`, one at a time.
- ![Run Formula](doc-media/run-formula.png)
+![Run Formula](doc-media/run-formula.png)
+
 1. Follow the same steps as the predefined formula to review and apply the changes, and run the Java Application Build-Fix tool to apply build fixes.
 1. Review the proposed code changes and click **Keep** to apply them.
 
