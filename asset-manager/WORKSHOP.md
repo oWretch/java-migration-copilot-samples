@@ -40,7 +40,7 @@ The first step is to assess the sample Java application `asset-manager`. The ass
 
    > **NOTE**: If you are asked to allow the tool access the language models provided by GitHub Copilot Chat, select **Allow** to proceed.
 
-1. After each step, please manually input a response to confirm and proceed.
+1. After each step, please manually input "continue" to confirm and proceed.
 1. Wait for the assessment to be completed and the report to be generated.
 1. Review the **Summary** report. Select **Propose Solution** to view the proposed solutions for the issues identified in the summary report.
 1. For this workshop, deselect all solutions and select **Use Azure Database for PostgreSQL** in the Solution report, then select **Confirm Solution**.
