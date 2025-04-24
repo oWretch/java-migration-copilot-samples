@@ -5,7 +5,7 @@
 
 GitHub Copilot App Modernization for Java (Preview), also referred to as `App Modernization for Java`, assists with app assessment, planning and code remediation. It automates repetitive tasks, boosting developer confidence and speeding up the Azure migration and ongoing optimization.
 
-In this workshop, you learn how to use GitHub Copilot App Modernization for Java (Preview) to assess and migrate a sample Java application `asset-manager` to Azure. For more information about the sample application, see [Asset Manager](README.md).
+In this workshop, you learn how to use GitHub Copilot App Modernization for Java (Preview) to assess and migrate a sample Java application `asset-manager` to Azure. This application consists of two sub-modules, **Web** and **Worker**. For more information about this sample application, see [Asset Manager](README.md).
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ The following sections guide you through the process of migrating the sample Jav
 
 The first step is to assess the sample Java application `asset-manager`. The assessment provides insights into the application's readiness for migration to Azure.
 
-1. Open the VS code with all the prerequisites installed on the asset manager by changing the directory to the `asset manager` directory and running `code .` in that directory.
+1. Open the VS code with all the prerequisites installed on the asset manager by changing the directory to the `asset-manager` directory and running `code .` in that directory.
 1. Open the extension `App Modernization for Java`.
-1. The **Assess** button looks a triangle pointing right. Select **Assess**, the Github Copilot chat window will be opened and propose to run Modernization Assessor. Please confirm the tool usage by clicking **Continue**. 
+1. Hover the mouse over the **Assessment** section and click **Assess** button which looks like a triangle pointing right. Then, the Github Copilot Chat window will be opened and propose to run Modernization Assessor. Please confirm the tool usage by clicking **Continue**. 
 ![Trigger Assessment](doc-media/trigger-assessment.png)
 
    > **NOTE**: If you are asked to allow the tool access the language models provided by GitHub Copilot Chat, select **Allow** to proceed.
@@ -67,21 +67,21 @@ The first step is to assess the sample Java application `asset-manager`. The ass
 
 ### Migrate to Azure Blob Storage and Azure Service Bus using Custom Formula
 
-Recall that the sample Java application `asset-manager` uses AWS S3 for image storage and Spring AMQP RabbitMQ for message queuing. The `workshop` branch has additional commits that have already migrated the code for **Web Application** with custom code remediation to use Azure Blob Storage and Azure Service Bus, respectively. 
+The Application `asset-manager` used AWS S3 for image storage and Spring AMQP with RabbitMQ for message queuing. We have already migrated the code of **Web** module to use Azure Blob Storage and Azure Service Bus. These changes are recorded in two separate commits in the `workshop` branch.
 
-Now, you migrate the **Worker Service** to use Azure Blob Storage and Azure Service Bus as well, by using custom formulas created from existing commits that migrated the **Web Application**.
+The following steps demonstrate how to generate custom formulas based on those existing commits. Then, you can migrate **Worker** module to use Azure Blob Storage and Azure Service Bus as well, using the created custom formulas.
 
 1. Open the sidebar of `App Modernization for Java`. Hover the mouse over the **Formulas** section.  Select **Create formula from source control**. This icon looks like two circles with arrows pointing to the other circle. 
 ![Create Formula From Source Control](doc-media/create-formula-from-source-control.png)
-1. Type **migrate web** to search for the commits that migrated the **Web Application**, and you should see two commits listed:
-   * migrate web rabbitmq to azure service bus
+1. Type **migrate web** to search for the commits that migrated the **Web** module, and you should see two commits listed:
+   * migrate web RabbitMQ to azure service bus
    * migrate web s3 to azure blob storage
 ![Migration Commits](doc-media/migration-commits.png)
-1. You will create two custom formulas based on the two commits. First, create the formula for migrating rabbitmq. Select the commit of **migrate web rabbitmq to azure service bus**, click OK.
+1. You will create two custom formulas based on the two commits. First, create the formula for migrating RabbitMQ. Select the commit of **migrate web RabbitMQ to azure service bus**, click OK.
 1. Click **Create New** to create a new custom formula.
-1. Default formula name will be generated. Give it a new name: "custom formula migrate rabbitmq". Press `Enter` to confirm. Then, formula description, and search patterns will be generated in order. Press `Enter` repeatedly to confirm.
-1. Now, the custom formula for migrating rabbitmq is generated and shows in the section of formulas in of `App Modernization for Java` blade.
-![Custom Formula of Migrating Rabbitmq](doc-media/custom-formula-rabbitmq.png)
+1. Default formula name will be generated. Give it a new name: "custom formula migrate RabbitMQ". Press `Enter` to confirm. Then, formula description, and search patterns will be generated in order. Press `Enter` repeatedly to confirm.
+1. Now, the custom formula for migrating RabbitMQ is generated and shows in the section of formulas in of `App Modernization for Java` blade.
+![Custom Formula of Migrating Rabbitmq](doc-media/custom-formula-RabbitMQ.png)
 1. Create another custom formula for migrating S3. Follow the same steps you just did, select the commit **migrate web s3 to azure blob storage** to create a new custom formula with name: "custom formula migrate s3".
 1. Now, the two custom formulas are ready.
 ![Custom Formulas](doc-media/custom-formulas.png)
@@ -96,13 +96,13 @@ At this point, you have successfully migrated the sample Java application `asset
 
 For example, an Azure Database for PostgreSQL Flexible Server requires a location that supports the service. Follow the instructions below to find a suitable location.
 
-1. Run the following command to list all available locations for your account:
+1. Run the following command to list all available locations for the current subscription.
 
    ```bash
    az account list-locations -o table
    ```
 
-1. Try a location from column **Name** in the output. For example, `eastus2` stands for **East US 2**.
+1. Select a location from column **Name** in the output.
 
 1. Run the following command to list all available SKUs in the selected location for Azure Database for PostgreSQL Flexible Server:
 
@@ -128,7 +128,7 @@ Deploy using local environment by running the deployment script in the terminal:
 1. Run `az login` to sign in to Azure.
 1. Run the following commands to deploy the app to Azure:
 
-   Winndows:
+   Windows:
    ```batch
    scripts\deploy-to-azure.cmd -ResourceGroupName <your resource group name> -Location <your resource group location, e.g., eastus2> -Prefix <your unique resource prefix>
    ```
@@ -142,9 +142,9 @@ Once the deployment script completes successfully, it outputs the URL of the Web
 
 ## Clean up
 
-When you are done with the workshop, clean up the Azure resources to avoid incurring costs.
+When no longer needed,  you can delete all related resources using the following scripts.
 
-Winndows:
+Windows:
 ```batch
 scripts\cleanup-azure-resources.cmd -ResourceGroupName <your resource group name>
 ```
