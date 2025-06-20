@@ -1,0 +1,17 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:latest": {
+      "extensions": "containerapp rdbms-connect serviceconnector-passwordless"
+    }
+  },
+  "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-upgrade",
+        "vscjava.migrate-java-to-azure"
+      ]
+    }
+  }
+}
